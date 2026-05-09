@@ -1,4 +1,6 @@
 flask
+pandas
+plotly
 gunicorn==26.0.0
 packaging==26.2
 Flask-SQLAlchemy
