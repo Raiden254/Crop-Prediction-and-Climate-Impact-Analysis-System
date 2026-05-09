@@ -1,8 +1,8 @@
-fastapi==
-uvicorn==
-joblib==
-numpy==
-flask==
+fastapi
+uvicorn
+joblib
+numpy
+flask
 scikit-learn
 gunicorn==26.0.0
 packaging==26.2
