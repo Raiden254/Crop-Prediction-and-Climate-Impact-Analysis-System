@@ -299,7 +299,9 @@ def predict():
         }
 
         try:
-            response = requests.post("http://127.0.0.1:8000/predict", json=payload)
+            FASTAPI_URL = os.getenv("FASTAPI_URL", "http://127.0.0.1:8000")
+            print(f"DEBUG FASTAPI_URL: {FASTAPI_URL}")
+            response = requests.post(f"{FASTAPI_URL}/predict", json=payload)            
             result = response.json()
 
             if "prediction" in result:
