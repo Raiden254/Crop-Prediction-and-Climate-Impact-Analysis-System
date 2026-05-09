@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1>Climate Analysis</h1>
+            <a href="/" class="btn btn-primary">Back to Overview</a>
+        </div>
+
+        <div class="card p-3 mb-4">
+            <h3>Temperature Trends Over Time</h3>
+            <p class="text-muted">
+                Temperature has shown a gradual increase over the years, with 2020 being an outlier due to the closer of multiple industries caused by the Corona pandemic. This trend is concerning as rising temperatures can stress crops and lead to reduced yields.
+            {{ temp_chart|safe }}
+        </div>
+
+        <div class="card p-3 mb-4">
+            <h3>Rainfall Trends Over Time</h3>
+            <p class="text-muted">
+                Rainfall has shown fluctuations over the years, with certain periods around 2020 experiencing higher peaks. Understanding these trends is crucial for predicting crop yields and planning agricultural activities.
+            </p>
+            {{ rain_chart|safe }}
+            <div class="alert-info mt-3">
+                <strong>Key Insight:</strong> The variability in rainfall patterns can significantly impact crop growth. Farmers should consider implementing water conservation techniques during drier periods and optimizing irrigation during wetter seasons.
+                Higher rainfall generally corresponds to increased crop yields, however excessive rainfall can lead to waterlogging thus negatively affect crop health and may lead to reduced productivity.
+            </div>
+
+        <div class="card p-3 mb-4">
+            <h3>Temperature Variability</h3>
+            <p class="text-muted">
+                Temperature has gradually increases over the years with 2020 being an outlier due to the closer of multiple industries caused by the Corona pandemic.
+            </p>
+            {{ range_chart|safe }}
+            <div class="alert-info mt-3">
+                <strong>Key Insight:</strong> Rising temperatures can stress crops, leading to reduced yields. It is essential for farmers to adopt heat-tolerant crop varieties and implement strategies such as mulching and shade netting to mitigate the effects of high temperatures on crop growth.
+            </div>
+        </div>
+
+        <div class="card p-3 mb-4">
+            <h3>Wind Speed</h3>
+            <p class="text-muted">
+                Wind speed has shown fluctuations over the years, with certain periods around 2020 experiencing higher peaks. Understanding these trends is crucial for predicting crop yields and planning agricultural activities.
+            </p>
+              {{ wind_chart|safe }}
+            <div class="alert-info mt-3">
+                <strong>Key Insight:</strong> High wind speeds can cause physical damage to crops, leading to reduced yields. Farmers should consider implementing windbreaks and selecting crop varieties that are more resistant to wind damage to protect their crops and maintain productivity.
+            </div>
+        </div>
+
+        <div class="card p-3 mb-4">
+            <h3>Atmospheric Pressure</h3>
+            <p class="text-muted">
+                Atmospheric pressure has shown fluctuations over the years, with certain periods around 2020 experiencing higher peaks. Understanding these trends is crucial for predicting crop yields and planning agricultural activities.
+            </p>
+            {{ pressure_chart|safe }}
+            <div
+                class="alert-info mt-3">
+                <strong>Key Insight:</strong> Changes in atmospheric pressure can influence weather patterns and crop growth. Farmers should monitor atmospheric pressure trends to anticipate weather changes and adjust their farming practices accordingly to optimize crop yields.
+            </div>
+        </div>
+
+        <div class="card p-3 mb-4">
+            <h3>Rainfall Distribution</h3>
+            <p class="text-muted">
+                The histogram below shows the distribution of rainfall over the years. It indicates that while there are periods of high rainfall, there are also significant periods of low rainfall. This variability can pose challenges for crop growth and yield.
+            </p>
+            {{ rain_hist_chart|safe }}
+            <div class="alert-info mt-3">
+                <strong>Key Insight:</strong> The variability in rainfall distribution can lead to periods of drought or excessive moisture, both of which can negatively impact crop yields. Farmers should consider implementing water management strategies such as rainwater harvesting and efficient irrigation systems to mitigate the effects of rainfall variability on their crops.
+            </div>
+        </div>
+
+        <div class="card p-3">
+            <h3>Correlation Heatmap</h3>
+            <p class="text-muted">
+                The correlation heatmap below illustrates the relationships between different climate variables and crop yields. It helps identify which factors have the most significant impact on crop production.
+            </p>
+            {{ corr_heatmap_chart|safe }}
+            <div class="alert-info mt-3">
+                <strong>Key Insight:</strong> Understanding the correlations between climate variables and crop yields can help farmers make informed decisions about crop selection and management practices. For example, if rainfall has a strong positive correlation with crop yield, farmers may want to focus on water conservation techniques during dry periods to maximize their yields.
+            </div>
+        </div>
+    </div>
+{% endblock %}

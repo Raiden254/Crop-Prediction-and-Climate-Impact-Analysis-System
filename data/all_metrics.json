@@ -1,0 +1,610 @@
+[
+  {
+    "Sector": "Cereals",
+    "Crop": "Maize",
+    "Model": "Linear Regression",
+    "R2": -0.2427438367568,
+    "MAE": 527398.7144141202,
+    "MSE": 278158939511.9974
+  },
+  {
+    "Sector": "Cereals",
+    "Crop": "Maize",
+    "Model": "Random Forest",
+    "R2": 0.5244482039726078,
+    "MAE": 297055.37679999997,
+    "MSE": 106441069634.44275
+  },
+  {
+    "Sector": "Cereals",
+    "Crop": "Maize",
+    "Model": "Gradient Boosting",
+    "R2": 0.43024713434264916,
+    "MAE": 311805.42969500436,
+    "MSE": 127525760504.88553
+  },
+  {
+    "Sector": "Cereals",
+    "Crop": "Maize",
+    "Model": "Decision Tree",
+    "R2": -0.1569403027537808,
+    "MAE": 428103.0,
+    "MSE": 258953839218.0
+  },
+  {
+    "Sector": "Legumes",
+    "Crop": "Beans",
+    "Model": "Linear Regression",
+    "R2": -1.2462360739267964,
+    "MAE": 91755.69513212051,
+    "MSE": 9905504046.382776
+  },
+  {
+    "Sector": "Legumes",
+    "Crop": "Beans",
+    "Model": "Random Forest",
+    "R2": -0.35273221902212026,
+    "MAE": 74446.40849999996,
+    "MSE": 5965309979.984163
+  },
+  {
+    "Sector": "Legumes",
+    "Crop": "Beans",
+    "Model": "Gradient Boosting",
+    "R2": -1.1391459808216386,
+    "MAE": 96194.68244497827,
+    "MSE": 9433255664.792934
+  },
+  {
+    "Sector": "Legumes",
+    "Crop": "Beans",
+    "Model": "Decision Tree",
+    "R2": -2.04730018104843,
+    "MAE": 115906.5,
+    "MSE": 13438055164.5
+  },
+  {
+    "Sector": "Tubers",
+    "Crop": "Potatoes",
+    "Model": "Linear Regression",
+    "R2": 0.4084961331828635,
+    "MAE": 354620.9999431352,
+    "MSE": 354620.9999431352
+  },
+  {
+    "Sector": "Tubers",
+    "Crop": "Potatoes",
+    "Model": "Random Forest",
+    "R2": 0.5665698889945494,
+    "MAE": 320502.64700000046,
+    "MSE": 320502.64700000046
+  },
+  {
+    "Sector": "Tubers",
+    "Crop": "Potatoes",
+    "Model": "Gradient Boosting",
+    "R2": 0.5301580876063001,
+    "MAE": 309383.0190653183,
+    "MSE": 309383.0190653183
+  },
+  {
+    "Sector": "Tubers",
+    "Crop": "Potatoes",
+    "Model": "Decision Tree",
+    "R2": 0.5014948136010863,
+    "MAE": 317062.06499999994,
+    "MSE": 317062.06499999994
+  },
+  {
+    "Sector": "Cereals",
+    "Crop": "Sorghum",
+    "Model": "Linear Regression",
+    "R2": -1.7391311072279212,
+    "MAE": 62852.287710412085,
+    "MSE": 4595611619.323134
+  },
+  {
+    "Sector": "Cereals",
+    "Crop": "Sorghum",
+    "Model": "Random Forest",
+    "R2": -1.2069611239189353,
+    "MAE": 60264.315,
+    "MSE": 3702756745.63845
+  },
+  {
+    "Sector": "Cereals",
+    "Crop": "Sorghum",
+    "Model": "Gradient Boosting",
+    "R2": -1.274991084225527,
+    "MAE": 55343.862984250736,
+    "MSE": 3816894866.016144
+  },
+  {
+    "Sector": "Cereals",
+    "Crop": "Sorghum",
+    "Model": "Decision Tree",
+    "R2": 0.203713831651525,
+    "MAE": 35539.5,
+    "MSE": 1335979120.5
+  },
+  {
+    "Sector": "Cereals",
+    "Crop": "Millet",
+    "Model": "Linear Regression",
+    "R2": -1.127236903663566,
+    "MAE": 19549.59607768648,
+    "MSE": 570816711.5035118
+  },
+  {
+    "Sector": "Cereals",
+    "Crop": "Millet",
+    "Model": "Random Forest",
+    "R2": -0.790617948360602,
+    "MAE": 21906.95230000001,
+    "MSE": 480489336.69872856
+  },
+  {
+    "Sector": "Cereals",
+    "Crop": "Millet",
+    "Model": "Gradient Boosting",
+    "R2": -5.398379492468961,
+    "MAE": 39902.96310447712,
+    "MSE": 1716922988.0097418
+  },
+  {
+    "Sector": "Cereals",
+    "Crop": "Millet",
+    "Model": "Decision Tree",
+    "R2": -3.3357853145058805,
+    "MAE": 24119.0,
+    "MSE": 1163452322.0
+  },
+  {
+    "Sector": "Cash Crops",
+    "Crop": "Tea",
+    "Model": "Linear Regression",
+    "R2": 0.7685035132990679,
+    "MAE": 147408.5610147685,
+    "MSE": 33964956390.26956
+  },
+  {
+    "Sector": "Cash Crops",
+    "Crop": "Tea",
+    "Model": "Random Forest",
+    "R2": 0.9415305560811271,
+    "MAE": 75479.1,
+    "MSE": 8578584241.9
+  },
+  {
+    "Sector": "Cash Crops",
+    "Crop": "Tea",
+    "Model": "Gradient Boosting",
+    "R2": 0.9999999908809986,
+    "MAE": 30.979756410233676,
+    "MSE": 1337.9316924219374
+  },
+  {
+    "Sector": "Cash Crops",
+    "Crop": "Tea",
+    "Model": "Decision Tree",
+    "R2": 1.0,
+    "MAE": 0.0,
+    "MSE": 0.0
+  },
+  {
+    "Sector": "Cash Crops",
+    "Crop": "SugarCane",
+    "Model": "Linear Regression",
+    "R2": 0.047851119073563764,
+    "MAE": 27707.950733438985,
+    "MSE": 1055855791.5461165
+  },
+  {
+    "Sector": "Cash Crops",
+    "Crop": "SugarCane",
+    "Model": "Random Forest",
+    "R2": 0.8079469071895808,
+    "MAE": 13174.578180000002,
+    "MSE": 212971284.6282196
+  },
+  {
+    "Sector": "Cash Crops",
+    "Crop": "SugarCane",
+    "Model": "Gradient Boosting",
+    "R2": 0.9999999716365047,
+    "MAE": 4.371301467109879,
+    "MSE": 31.45281306697806
+  },
+  {
+    "Sector": "Cash Crops",
+    "Crop": "SugarCane",
+    "Model": "Decision Tree",
+    "R2": 1.0,
+    "MAE": 0.0,
+    "MSE": 0.0
+  },
+  {
+    "Sector": "Cereals",
+    "Crop": "Wheat",
+    "Model": "Linear Regression",
+    "R2": 0.702679091065584,
+    "MAE": 31739.40549544338,
+    "MSE": 1571084441.7598252
+  },
+  {
+    "Sector": "Cereals",
+    "Crop": "Wheat",
+    "Model": "Random Forest",
+    "R2": 0.9560321763881118,
+    "MAE": 13541.003999999997,
+    "MSE": 232332007.39983997
+  },
+  {
+    "Sector": "Cereals",
+    "Crop": "Wheat",
+    "Model": "Gradient Boosting",
+    "R2": 0.9999999117913738,
+    "MAE": 17.64220972964249,
+    "MSE": 466.1064729834202
+  },
+  {
+    "Sector": "Cereals",
+    "Crop": "Wheat",
+    "Model": "Decision Tree",
+    "R2": 1.0,
+    "MAE": 0.0,
+    "MSE": 0.0
+  },
+  {
+    "Sector": "Cereals",
+    "Crop": "Rice",
+    "Model": "Linear Regression",
+    "R2": 0.8867632302692761,
+    "MAE": 13785.952084481232,
+    "MSE": 401261846.75617117
+  },
+  {
+    "Sector": "Cereals",
+    "Crop": "Rice",
+    "Model": "Random Forest",
+    "R2": 0.9524369189574688,
+    "MAE": 10364.564,
+    "MSE": 168542866.26087996
+  },
+  {
+    "Sector": "Cereals",
+    "Crop": "Rice",
+    "Model": "Gradient Boosting",
+    "R2": 0.9999999943794132,
+    "MAE": 3.8137320858601016,
+    "MSE": 19.916914071500564
+  },
+  {
+    "Sector": "Cereals",
+    "Crop": "Rice",
+    "Model": "Decision Tree",
+    "R2": 1.0,
+    "MAE": 0.0,
+    "MSE": 0.0
+  },
+  {
+    "Sector": "Cash Crops",
+    "Crop": "Coffee",
+    "Model": "Linear Regression",
+    "R2": 0.1401646413979729,
+    "MAE": 4175.922321325019,
+    "MSE": 25487078.26559271
+  },
+  {
+    "Sector": "Cash Crops",
+    "Crop": "Coffee",
+    "Model": "Random Forest",
+    "R2": 0.7333624956669106,
+    "MAE": 2295.3949999999995,
+    "MSE": 7903618.842249999
+  },
+  {
+    "Sector": "Cash Crops",
+    "Crop": "Coffee",
+    "Model": "Gradient Boosting",
+    "R2": 0.9999944506978176,
+    "MAE": 12.303972478592186,
+    "MSE": 164.4913734108908
+  },
+  {
+    "Sector": "Cash Crops",
+    "Crop": "Coffee",
+    "Model": "Decision Tree",
+    "R2": 1.0,
+    "MAE": 0.0,
+    "MSE": 0.0
+  },
+  {
+    "Sector": "Vegetables",
+    "Crop": "Tomatoes",
+    "Model": "Linear Regression",
+    "R2": 0.45075439864233946,
+    "MAE": 83317.67462829493,
+    "MSE": 16638634805.979925
+  },
+  {
+    "Sector": "Vegetables",
+    "Crop": "Tomatoes",
+    "Model": "Random Forest",
+    "R2": 0.9167412908510729,
+    "MAE": 34824.25343000012,
+    "MSE": 2522207283.084281
+  },
+  {
+    "Sector": "Vegetables",
+    "Crop": "Tomatoes",
+    "Model": "Gradient Boosting",
+    "R2": 0.9999999943500693,
+    "MAE": 10.480948574800276,
+    "MSE": 171.1568275393748
+  },
+  {
+    "Sector": "Vegetables",
+    "Crop": "Tomatoes",
+    "Model": "Decision Tree",
+    "R2": 1.0,
+    "MAE": 0.0,
+    "MSE": 0.0
+  },
+  {
+    "Sector": "Fruits",
+    "Crop": "Pineapples",
+    "Model": "Linear Regression",
+    "R2": 0.5604879987788036,
+    "MAE": 32580.51928758208,
+    "MSE": 1938187406.5969758
+  },
+  {
+    "Sector": "Fruits",
+    "Crop": "Pineapples",
+    "Model": "Random Forest",
+    "R2": 0.8134540404650054,
+    "MAE": 25046.619449999973,
+    "MSE": 822641995.0255468
+  },
+  {
+    "Sector": "Fruits",
+    "Crop": "Pineapples",
+    "Model": "Gradient Boosting",
+    "R2": 0.9999993330950382,
+    "MAE": 45.06039486416266,
+    "MSE": 2940.9590519363533
+  },
+  {
+    "Sector": "Fruits",
+    "Crop": "Pineapples",
+    "Model": "Decision Tree",
+    "R2": 1.0,
+    "MAE": 0.0,
+    "MSE": 0.0
+  },
+  {
+    "Sector": "Fruits",
+    "Crop": "Bananas",
+    "Model": "Linear Regression",
+    "R2": 0.8526592412666978,
+    "MAE": 104514.7126075032,
+    "MSE": 12602419424.604183
+  },
+  {
+    "Sector": "Fruits",
+    "Crop": "Bananas",
+    "Model": "Random Forest",
+    "R2": 0.9534285427197962,
+    "MAE": 54429.28316999972,
+    "MSE": 3983371898.6239333
+  },
+  {
+    "Sector": "Fruits",
+    "Crop": "Bananas",
+    "Model": "Gradient Boosting",
+    "R2": 0.9999999948866524,
+    "MAE": 18.44586889569182,
+    "MSE": 437.35726368176495
+  },
+  {
+    "Sector": "Fruits",
+    "Crop": "Bananas",
+    "Model": "Decision Tree",
+    "R2": 1.0,
+    "MAE": 0.0,
+    "MSE": 0.0
+  },
+  {
+    "Sector": "Fruits",
+    "Crop": "Avocados",
+    "Model": "Linear Regression",
+    "R2": 0.810619273070604,
+    "MAE": 48810.34638993098,
+    "MSE": 4613419580.479669
+  },
+  {
+    "Sector": "Fruits",
+    "Crop": "Avocados",
+    "Model": "Random Forest",
+    "R2": 0.9535718401699754,
+    "MAE": 23989.763979999996,
+    "MSE": 1131015732.7959208
+  },
+  {
+    "Sector": "Fruits",
+    "Crop": "Avocados",
+    "Model": "Gradient Boosting",
+    "R2": 0.9999999972624902,
+    "MAE": 7.138537655884283,
+    "MSE": 66.68725721142529
+  },
+  {
+    "Sector": "Fruits",
+    "Crop": "Avocados",
+    "Model": "Decision Tree",
+    "R2": 1.0,
+    "MAE": 0.0,
+    "MSE": 0.0
+  },
+  {
+    "Sector": "Fruits",
+    "Crop": "Mangoes",
+    "Model": "Linear Regression",
+    "R2": 0.32334252411313213,
+    "MAE": 45795.98924751057,
+    "MSE": 3877297164.4136643
+  },
+  {
+    "Sector": "Fruits",
+    "Crop": "Mangoes",
+    "Model": "Random Forest",
+    "R2": 0.791569943501907,
+    "MAE": 24981.76609999995,
+    "MSE": 1194319572.0692103
+  },
+  {
+    "Sector": "Fruits",
+    "Crop": "Mangoes",
+    "Model": "Gradient Boosting",
+    "R2": 0.999999539004696,
+    "MAE": 44.6529892829014,
+    "MSE": 2641.5370388923666
+  },
+  {
+    "Sector": "Fruits",
+    "Crop": "Mangoes",
+    "Model": "Decision Tree",
+    "R2": 1.0,
+    "MAE": 0.0,
+    "MSE": 0.0
+  },
+  {
+    "Sector": "Vegetables",
+    "Crop": "Carrots",
+    "Model": "Linear Regression",
+    "R2": 0.5553322879517351,
+    "MAE": 40281.40736951864,
+    "MSE": 2798957228.18491
+  },
+  {
+    "Sector": "Vegetables",
+    "Crop": "Carrots",
+    "Model": "Random Forest",
+    "R2": 0.8765965186036395,
+    "MAE": 19766.967049999952,
+    "MSE": 776762190.9099506
+  },
+  {
+    "Sector": "Vegetables",
+    "Crop": "Carrots",
+    "Model": "Gradient Boosting",
+    "R2": 0.9999999963826307,
+    "MAE": 3.5385887736687436,
+    "MSE": 22.769500884249954
+  },
+  {
+    "Sector": "Vegetables",
+    "Crop": "Carrots",
+    "Model": "Decision Tree",
+    "R2": 1.0,
+    "MAE": 0.0,
+    "MSE": 0.0
+  },
+  {
+    "Sector": "Vegetables",
+    "Crop": "Cabbages",
+    "Model": "Linear Regression",
+    "R2": 0.4907906005355446,
+    "MAE": 104460.7766009625,
+    "MSE": 20429091173.836906
+  },
+  {
+    "Sector": "Vegetables",
+    "Crop": "Cabbages",
+    "Model": "Random Forest",
+    "R2": 0.9418775786972768,
+    "MAE": 37261.20913999999,
+    "MSE": 2331827034.784294
+  },
+  {
+    "Sector": "Vegetables",
+    "Crop": "Cabbages",
+    "Model": "Gradient Boosting",
+    "R2": 0.9999999423489367,
+    "MAE": 43.264977120840925,
+    "MSE": 2312.9165102868033
+  },
+  {
+    "Sector": "Vegetables",
+    "Crop": "Cabbages",
+    "Model": "Decision Tree",
+    "R2": 1.0,
+    "MAE": 0.0,
+    "MSE": 0.0
+  },
+  {
+    "Sector": "Fruits",
+    "Crop": "Oranges",
+    "Model": "Linear Regression",
+    "R2": 0.8320121085477222,
+    "MAE": 10331.1280584359,
+    "MSE": 180029948.72680217
+  },
+  {
+    "Sector": "Fruits",
+    "Crop": "Oranges",
+    "Model": "Random Forest",
+    "R2": 0.9465300348560035,
+    "MAE": 6108.917990000009,
+    "MSE": 57302910.34715559
+  },
+  {
+    "Sector": "Fruits",
+    "Crop": "Oranges",
+    "Model": "Gradient Boosting",
+    "R2": 0.999999998679865,
+    "MAE": 0.9956320926867193,
+    "MSE": 1.414767606124192
+  },
+  {
+    "Sector": "Fruits",
+    "Crop": "Oranges",
+    "Model": "Decision Tree",
+    "R2": 1.0,
+    "MAE": 0.0,
+    "MSE": 0.0
+  },
+  {
+    "Sector": "Vegetables",
+    "Crop": "Onions",
+    "Model": "Linear Regression",
+    "R2": 0.8896024643101411,
+    "MAE": 19149.534899217535,
+    "MSE": 440415547.2709588
+  },
+  {
+    "Sector": "Vegetables",
+    "Crop": "Onions",
+    "Model": "Random Forest",
+    "R2": 0.9614552278209287,
+    "MAE": 9320.09580999998,
+    "MSE": 153768984.31293073
+  },
+  {
+    "Sector": "Vegetables",
+    "Crop": "Onions",
+    "Model": "Gradient Boosting",
+    "R2": 0.9999999791253872,
+    "MAE": 7.843642354254553,
+    "MSE": 83.27635189304785
+  },
+  {
+    "Sector": "Vegetables",
+    "Crop": "Onions",
+    "Model": "Decision Tree",
+    "R2": 1.0,
+    "MAE": 0.0,
+    "MSE": 0.0
+  }
+]

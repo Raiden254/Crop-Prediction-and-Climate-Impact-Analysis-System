@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem;">
+    <h1>Admin Dashboard</h1>
+    <div style="display:flex; gap:10px;">
+        <a href="/admin/export" class="btn-primary" style="text-decoration:none;">
+            ⬇ Export CSV
+        </a>
+        <a href="/admin/logout" style="padding:10px 20px; border-radius:8px; background:#e53935; color:white; text-decoration:none; font-size:14px;">
+            Logout
+        </a>
+    </div>
+</div>
+
+<div class="card">
+    <p style="font-size:13px; color:#888; font-weight:400; margin-bottom:1rem;">
+        {{ submissions|length }} total submissions
+    </p>
+
+    {% if submissions %}
+    <div style="overflow-x:auto;">
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Crop</th>
+                    <th>Model</th>
+                    <th>Rainfall</th>
+                    <th>Temperature</th>
+                    <th>Prediction</th>
+                    <th>Actual Yield</th>
+                    <th>Submitted</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for s in submissions %}
+                <tr>
+                    <td>{{ s.id }}</td>
+                    <td>{{ s.crop }}</td>
+                    <td>{{ s.model }}</td>
+                    <td>{{ s.rainfall }}</td>
+                    <td>{{ s.temperature }}</td>
+                    <td>{{ "%.2f"|format(s.prediction) }}</td>
+                    <td>{{ s.actual_yield if s.actual_yield else "—" }}</td>
+                    <td>{{ s.submitted_at.strftime("%Y-%m-%d %H:%M") }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+        <p style="color:#888; font-weight:400;">No submissions yet.</p>
+    {% endif %}
+</div>
+{% endblock %}

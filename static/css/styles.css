@@ -1,0 +1,287 @@
+        h1 {
+            color: #2E7D32;
+            font-weight: 700;
+        }
+        p {
+            font-size: 20px;
+            color: #34495e;
+        }
+        h2 {
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: #2980b9;
+        }
+        .card {
+            margin-top: 20px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: none solid;
+            border-radius: 10px;
+            background-color: rgba(236, 240, 241, 0.5);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
+            animation: cardIn 0.5s ease both; 
+        }
+        .card:hover {
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+            transform: translateY(-3px);
+        }
+        .card:nth-child(2) { animation-delay: 0.08s; }
+        .card:nth-child(3) { animation-delay: 0.16s; }
+        .card:nth-child(4) { animation-delay: 0.24s; }
+        .sidebar {
+            min-height: 100vh;
+            background-color: #c7cdc7;
+            background: linear-gradient(180deg, #2E7D32, #1b5e20);
+            padding: 20px;
+            color: white;
+            position: sticky;
+            top: 0;
+            width: 220px;
+            flex-shrink: 0;
+            align-self: flex-start;
+            overflow-y: auto;
+        }
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            transition: 0.3s;
+        }
+        .sidebar a.active, .sidebar a:hover,
+        .sidebar .crop-link:hover, 
+        .sidebar .crop-link.active {
+            background-color: rgba(255,255,255,0.15);
+            transition: background-color 0.25s ease, 
+                        transform 0.2s ease, padding-left 0.2s ease;
+            padding-left: 15px;
+            animation: activeglow 1.2s ease 0.5s both;
+        }
+        .sidebar .btn{
+            width: 100%;
+        }
+        html, body {
+            min-height: 100%;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #f5f7fa;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        @keyframes fadeSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes activeGlow {
+            0% {
+                box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+            }
+            50% {
+                box-shadow: 0 0 15px rgba(255, 255, 255, 1);
+            }
+            100% {
+                box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+            }
+        }
+        @keyframes cardIn{
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes popIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            70% {
+                transform: scale(1.03);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        .main {
+            padding: 30px;
+            background-color: rgba(255,255,255,0.5);
+            box-shadow: 0 0 25px rgba(0,0,0,0.15);
+            border-radius: 12px;
+            flex: 1;
+            margin: 20px;
+            min-width: 0;
+            animation: fadeSlideIn 0.5s ease both;
+        }
+        .btn-primary {
+            background-color: #1E88E5;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 20px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, transform 0.2s ease,
+                        box-shadow 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #1565c0;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(30,136,229,0.3);
+        }
+        .btn-primary:active {
+            transform: scale(0.97);
+        }
+        input, select{
+            border-radius: 8px !important;
+            padding: 10px;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+        .prediction-box{
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, #1E88E5, #42A5F5);
+            color: white;
+            border-radius: 12px;
+            font-size: 28px;
+            font-weight: bold;
+            animation: popIn 0.5s ease both;
+        }
+        .sidebar h4, .sidebar h5 {
+            color: white;
+            margin-bottom: 10px;
+        }
+        .layout {
+            display: flex;
+            gap: 0px;
+            min-height: 100vh;
+        }
+        .predict-btn {
+            display: block;
+            text-align: center;
+            background-color: #f9a825;
+            color: #1a1a00 !important;
+            font-weight: 600;
+            padding: 10px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: 0.3s;
+            margin-top: 8px;
+            transition: background-color 0.25s ease, 
+                        transform 0.2s ease, padding-left 0.2s ease;
+        }
+        .predict-btn:hover {
+            transform: scale(1.03);
+        }
+        input:focus, select:focus {
+            outline: none;
+            border-color: #1E88E5;
+            box-shadow: 0 0 0 3px rgba(30,136,229,0.15);
+        }
+
+        /* ── Metrics charts ────────────────────────────────────────── */
+        .metrics-section {
+            margin-top: 2rem;
+        }
+
+        .metrics-label {
+            font-size: 13px;
+            color: #888;
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
+        }
+        .metric-card {
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(224, 224, 224, 0.5);
+            border-radius: 10px;
+            padding: 1rem 1.25rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            opacity: 0;
+            animation: cardIn 0.5s ease forwards;
+        }
+        .metric-card:nth-child(1) { animation-delay: 0.1s; }
+        .metric-card:nth-child(2) { animation-delay: 0.2s; }
+        .metric-card:nth-child(3) { animation-delay: 0.3s; }
+        .metric-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: #2E7D32;
+            margin-bottom: 0.75rem;
+        }
+        .metric-title .tip {
+            font-size: 11px;
+            font-weight: 400;
+            color: #aaa;
+            margin-left: 6px;
+        }
+        .chart-wrap {
+            position: relative;
+            height: 250px;
+            width: 100%;
+        }
+        /* ── Alert ─────────────────────────────────────────────────── */
+        .alert-danger {
+            background: #fdecea;
+            color: #c62828;
+            border: 1px solid #f5c6cb;
+            border-radius: 8px;
+            padding: 12px 16px;
+            margin-top: 1rem;
+            font-size: 14px;
+        }
+        /* ── Admin table ───────────────────────────────────────────── */
+        .admin-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+        .admin-table th {
+            text-align: left;
+            padding: 10px 12px;
+            border-bottom: 2px solid #e0e0e0;
+            color: #2E7D32;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        .admin-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #f0f0f0;
+            color: #34495e;
+        }
+        .admin-table tr:last-child td {
+            border-bottom: none;
+        }
+        .admin-table tr:hover td {
+            background: #f9f9f9;
+        }
+        .crop-list {
+            max-height: 400px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }

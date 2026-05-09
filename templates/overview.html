@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+        <h1 class="mb-4">Crop Yield Prediction & Climate Impact Analysis System</h1>
+        <p>Welcome to the Crop Yield Prediction and Climate Impact Analysis dashboard. This platform
+             provides insights into how various climatic factors influence crop yields, helping farmers 
+             and stakeholders make informed decisions.</p>
+
+        <div class="card p-4 mb-4">
+            <h2>About This System</h2>
+            <p>This system utilizes machine learning models to predict crop yields based on historical data 
+                and climate variables. It also analyzes how climate factors such as rainfall and temperature 
+                influence crop yield hence offering valuable information for sustainable farming practices.</p>
+        </div>
+
+        <div class="card p-4 mb-4">
+            <h2>Key Features</h2>
+            <ul>
+                <li><strong>Crop Yield Prediction:</strong> Predict future crop yields based on historical data and climate variables.</li>
+                <li><strong>Climate Impact Analysis:</strong> Analyze how different climatic factors affect crop yields.</li>
+                <li><strong>Interactive Visualizations:</strong> Explore data through interactive charts and graphs.</li>
+                <li><strong>Data-Driven Insights:</strong> Gain insights to optimize farming practices and improve crop management.</li>
+            </ul>
+        </div>
+
+        <div class="card p-4 mb-4">
+            <h2>How it works</h2>
+            <ol>
+                <li>Climate data (rainfall, temperature) is analyzed.</li>
+                <li>Crop yield trends are visualized.</li>
+                <li>Machine learning models are trained on historical data.</li>
+                <li>User inputs are used to generate yield predictions.</li>
+            </ol>
+        </div>
+
+        <div class="card p-4 mb-4">
+            <h2>Data Sources</h2>
+            <p>The data used in this project is sourced from the Kenya National Bureau of Statistics via open source Africa 
+                and Food and Agriculture Organization of the United Nations. Meteorological data from Kenya Weather Station 
+                Data (2015–2025) via Kaggle, ensuring accuracy and reliability for analysis and predictions.</p>
+        </div>
+
+        <div class="card p-4 mb-4">
+            <h2>How to Use This Dashboard</h2>
+            <p>Navigate through the sidebar to explore different crops and their relationships with climate factors. 
+                Use the interactive charts to analyze trends and make data-driven decisions for better crop management.</p>
+            <ul>
+                <li><b>Climate Analysis:</b> Explore environmental trends.</li>
+                <li><b>Crop Analysis:</b> Dive into specific crop performance.</li>
+                <li><b>Yield Predictions:</b> Get forecasts based on current data.</li>
+            </ul>
+        </div>
+
+        <h1 class="text-center mt-4">Climate Impact Analysis (Overview)</h1>
+
+        <div class="row">
+            <div class="card p-3 mb-4">
+                <h3>Rainfall Trends Over Time</h3>
+                {{ rain_chart|safe }}
+            </div>
+            <div class="col-md-6 card mb-4 p-3">
+                <h3>Temperature Variability</h3>
+                {{ temp_chart|safe }}
+            </div>
+        </div>
+
+        <div class="card mb-4 p-3">
+            <h3>Crop Yield Trends Across Years</h3>
+            {{ yield_chart|safe }}
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 card mb-4 p-3">
+                <h3>Impact of Rainfall on Crop Yield</h3>
+                {{ rain_yield_chart|safe }}
+            </div>
+            <div class="col-md-6 card mb-4 p-3">
+                <h3>Impact of Temperature on Crop Yield</h3>
+                {{ temp_yield_chart|safe }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

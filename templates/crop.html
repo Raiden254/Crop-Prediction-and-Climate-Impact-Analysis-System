@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+        <h1 class="text-center mt-4">{{ crop_name }} Analysis</h1>
+        <p class="text-muted">
+            This section provides a detailed analysis of {{ crop_name }} production trends over time,
+            along with the influence of key climate factors such as rainfall and temperature.
+            Understanding these relationships helps identify conditions that maximize yield.
+        </p>
+        <p>Explore the trends and relationships for {{ crop_name }} production in relation to climate factors. Analyze how changes in rainfall and temperature are impacting {{ crop_name }} yields over time.</p>
+
+        <div class="card p-4 mb-4">
+            <h2>Production Trends</h2>
+            <p class="text-muted">
+                The chart below shows how {{ crop_name }} production has evolved over the years.
+                An upward trend indicates improved productivity, while fluctuations may reflect
+                changes in climate conditions, farming practices, or external factors.
+            
+        </p>
+        <div class="alert alert-success">
+            <strong>Insight:</strong>
+            {{ production_insight }}
+        </div>
+            {{ yield_chart | safe }}
+            <div class="alert alert-info mt-3">
+                <strong>Key Insight:</strong>
+                {{ crop_name }} production is influenced by both rainfall and temperature.
+                Stable climate conditions tend to support consistent yields, while variability
+                can lead to fluctuations in production levels.
+            </div>
+        </div>
+
+        <div class="card p-4 mb-4">
+            <h2>Climate vs Yield</h2>
+            <div class="row">
+                <div class="col-md-6 card p-3 mb-4">
+                    <h4>Impact of Rainfall on Production</h4>
+                    <p class="text-muted">
+                        Rainfall plays a critical role in crop growth. This chart explores how variations
+                        in rainfall levels affect {{ crop_name }} production. A positive relationship suggests
+                        that increased rainfall supports growth, while irregular patterns may indicate
+                        sensitivity to extreme weather conditions.
+                    </p>
+                    <div class="alert alert-info">
+                        <strong>Rainfall Insight:</strong>
+                        {{ rain_insight }}
+                    </div>
+                    {{ rain_yield_chart | safe }}
+                    <div class="alert alert-info mt-3">
+                        <strong>Key Insight:</strong>
+                        {{ crop_name }} production is influenced by both rainfall and temperature.
+                        Stable climate conditions tend to support consistent yields, while variability
+                        can lead to fluctuations in production levels.
+                    </div>
+                </div>
+                <div class="col-md-6 card p-3 mb-4">
+                    <h4>Impact of Temperature on Production</h4>
+                    <p class="text-muted">
+                        Temperature influences crop development cycles and yield outcomes. This visualization
+                        shows how changes in temperature correlate with {{ crop_name }} production.
+                        Optimal temperature ranges typically support higher yields, while extreme conditions
+                        may reduce productivity.
+                    </p>
+                    {{ temp_yield_chart | safe }}
+                    <div class="alert alert-warning">
+                        <strong>Temperature Insight:</strong>
+                        {{ temp_insight }}
+                    </div>
+                    <div class="alert alert-info mt-3">
+                        <strong>Key Insight:</strong>
+                        {{ crop_name }} production is influenced by both rainfall and temperature.
+                        Stable climate conditions tend to support consistent yields, while variability
+                        can lead to fluctuations in production levels.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card p-4 mb-4">
+            <h2>Heatmap Analysis</h2>
+            <h4>Yield Distribution Heatmap</h4>
+            <p class="text-muted">
+                This heatmap combines rainfall and temperature to show how different climate conditions
+                affect {{ crop_name }} production. Areas with higher intensity represent conditions
+                associated with higher yields, helping identify optimal growing environments.
+            </p>
+            {{ heatmap_chart | safe }}
+            <div class="alert alert-info mt-3">
+                <strong>Key Insight:</strong>
+                {{ crop_name }} production is influenced by both rainfall and temperature.
+                Stable climate conditions tend to support consistent yields, while variability
+                can lead to fluctuations in production levels.
+            </div>
+        </div>
+
+        {% if crop_name == "Horticulture" %}
+        <div class="card p-4 mb-4">
+            <h2>Component Correlation Analysis</h2>
+            <p class="text-muted">
+                Horticulture production is composed of multiple subcategories including flowers,
+                fruits, and vegetables. Each category responds differently to climate conditions,
+                making it important to analyze them separately for more accurate insights.
+            </p>
+            <div class="row">
+                <p class="text-muted">
+                    The breakdown below compares how flowers, fruits, and vegetables contribute to
+                    overall horticulture production. Differences in trends highlight how each category
+                    responds uniquely to environmental factors.
+                </p>
+                <div class="col-md-4 card p-3 mb-4">
+                    <h4>Flowers Correlation</h4>
+                    {{ flowers_corr_chart | safe }}
+                </div>
+                <div class="col-md-4 card p-3 mb-4">
+                    <h4>Fruits Correlation</h4>
+                    {{ fruits_corr_chart | safe }}
+                </div>
+                <div class="col-md-4 card p-3 mb-4">
+                    <h4>Vegetables Correlation</h4>
+                    {{ vegetables_corr_chart | safe }}
+                </div>
+                <div class="alert"alert-info mt-3">
+                <strong>Key Insight:</strong> It is evident that different horticulture subcategories respond 
+                differently to climate factors. For instance, flowers may be more sensitive to temperature fluctuations, while
+                 fruits and vegetables might be more influenced by rainfall patterns. This highlights the importance of tailored
+                  agricultural practices for each category to optimize yields under varying climate conditions. For components like flowers and
+                  some fruits it is understood that they grown under controlled environments such as greenhouses which may explain the weaker correlation with climate factors.
+            </div>
+        </div>
+        {% endif %}
+
+        <div class="text-center mt-4">
+            <a href="/" class="btn btn-primary">Back to Overview</a>
+        </div>
+    </div>
+{% endblock %}

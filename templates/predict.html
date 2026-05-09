@@ -1,0 +1,187 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Crop Yield Prediction</h1>
+
+<!-- ✅ CHANGED: metrics data moved here, out of the script tag -->
+<div id="metrics-data" data-metrics='{{ all_metrics | safe }}' style="display:none;"></div>
+
+<div class="card">
+    <form method="POST">
+
+        <label>Crop</label>
+        <select name="crop">
+            {% for crop in crops %}
+                <option value="{{ crop }}">{{ crop }}</option>
+            {% endfor %}
+        </select>
+
+        <label>Model</label>
+        <select name="model">
+            <option>Random Forest</option>
+            <option>Linear Regression</option>
+            <option>Gradient Boosting</option>
+            <option>Decision Tree</option>
+        </select>
+
+        <label>Rainfall</label>
+        <input type="number" step="any" name="rainfall" required>
+
+        <label>Temperature</label>
+        <input type="number" step="any" name="temperature" required>
+
+        <button type="submit" class="btn-primary">Run Prediction</button>
+
+        <label>Actual Yield <span style="font-size:12px; color:#aaa; font-weight:400;">(optional — helps improve the model)</span></label>
+        <input type="number" step="any" name="actual_yield" placeholder="Leave blank if unknown">
+
+        <button type="submit" class="btn-primary">Run Prediction</button>
+
+    </form>
+
+    <section class="metrics-section">
+        <p class="metrics-label" id="metrics-label">
+            Select a crop above to see model performance
+        </p>
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-title">R² Score <span class="tip">(higher is better)</span></div>
+                <div class="chart-wrap"><canvas id="chartR2" role="img" aria-label="R2 scores"></canvas></div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-title">MAE <span class="tip">(lower is better)</span></div>
+                <div class="chart-wrap"><canvas id="chartMAE" role="img" aria-label="MAE scores"></canvas></div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-title">MSE <span class="tip">(lower is better)</span></div>
+                <div class="chart-wrap"><canvas id="chartMSE" role="img" aria-label="MSE scores"></canvas></div>
+            </div>
+        </div>
+    </section>
+</div>
+
+{% if prediction %}
+<div class="prediction-box mt-4">
+    🌾 Predicted Yield: {{ prediction }}
+</div>
+{% endif %}
+
+{% if error %}
+<div class="alert-danger">{{ error }}</div>
+{% endif %}
+
+{% endblock %}
+
+
+{% block scripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+// ✅ CHANGED: read from DOM instead of Jinja tag — fixes VS Code linting errors
+const ALL_METRICS = JSON.parse(document.getElementById('metrics-data').dataset.metrics);
+
+const MODELS = ["Linear Regression", "Random Forest", "Gradient Boosting", "Decision Tree"];
+const MODEL_COLORS = {
+  "Linear Regression": "#4472C4",
+  "Random Forest":     "#E8A838",
+  "Gradient Boosting": "#2E9E56",
+  "Decision Tree":     "#C0504D"
+};
+
+const HORT_CROPS = ["Cutflowers", "Fruits", "Vegetables"];
+const SUBCROP_COLORS  = { "Cutflowers": "#4472C4", "Fruits": "#E8A838", "Vegetables": "#2E9E56" };
+const SUBCROP_BORDERS = { "Cutflowers": "#2E5599", "Fruits": "#B07820", "Vegetables": "#1A6E38" };
+
+function destroyChart(id) {
+  const c = Chart.getChart(id);
+  if (c) c.destroy();
+}
+
+function chartOptions(metric) {
+  return {
+    responsive: true,
+    maintainAspectRatio: false,
+    animation: {
+      duration: 600,
+      easing: "easeOutQuart",
+      delay: (ctx) => ctx.dataIndex * 80
+    },
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { ticks: { font: { size: 11 }, maxRotation: 20 }, grid: { display: false } },
+      y: { ticks: { font: { size: 11 }, callback: v => Number(v).toFixed(2) },
+           grid: { color: "rgba(0,0,0,0.06)" },
+           title: { display: true, text: metric, font: { size: 11 } } }
+    }
+  };
+}
+
+function buildStandardChart(canvasId, metric, rows) {
+  destroyChart(canvasId);
+  const sorted = MODELS.map(m => rows.find(r => r.Model === m)).filter(Boolean);
+  new Chart(document.getElementById(canvasId), {
+    type: "bar",
+    data: {
+      labels: sorted.map(r => r.Model),
+      datasets: [{
+        data: sorted.map(r => r[metric]),
+        backgroundColor: sorted.map(r => (MODEL_COLORS[r.Model] || "#888") + "bb"),
+        borderColor:     sorted.map(r =>  MODEL_COLORS[r.Model] || "#888"),
+        borderWidth: 1.5,
+        borderRadius: 4,
+      }]
+    },
+    options: chartOptions(metric)
+  });
+}
+
+function buildGroupedChart(canvasId, metric, rows) {
+  destroyChart(canvasId);
+  const datasets = HORT_CROPS.map(crop => ({
+    label: crop,
+    data: MODELS.map(m => { const r = rows.find(d => d.Crop === crop && d.Model === m); return r ? r[metric] : null; }),
+    backgroundColor: SUBCROP_COLORS[crop] + "bb",
+    borderColor:     SUBCROP_BORDERS[crop],
+    borderWidth: 1.5,
+    borderRadius: 4,
+  }));
+  new Chart(document.getElementById(canvasId), {
+    type: "bar",
+    data: { labels: MODELS, datasets },
+    options: {
+      ...chartOptions(metric),
+      plugins: { legend: { display: true, position: "top",
+        labels: { font: { size: 11 }, boxWidth: 12, padding: 10 } } }
+    }
+  });
+}
+
+function updateCharts(cropName) {
+  const isHort = cropName && cropName.toLowerCase() === "horticulture";
+
+  document.getElementById("metrics-label").textContent = cropName
+    ? `Model performance for: ${cropName}`
+    : "Select a crop above to see model performance";
+
+  if (isHort) {
+    const hortRows = ALL_METRICS.filter(r => HORT_CROPS.includes(r.Crop));
+    buildGroupedChart("chartR2",  "R2",  hortRows);
+    buildGroupedChart("chartMAE", "MAE", hortRows);
+    buildGroupedChart("chartMSE", "MSE", hortRows);
+  } else {
+    const rows = cropName
+      ? ALL_METRICS.filter(r => r.Crop.toLowerCase() === cropName.toLowerCase())
+      : ALL_METRICS.filter(r => !HORT_CROPS.includes(r.Crop));
+    buildStandardChart("chartR2",  "R2",  rows);
+    buildStandardChart("chartMAE", "MAE", rows);
+    buildStandardChart("chartMSE", "MSE", rows);
+  }
+}
+
+const cropSelect = document.querySelector('select[name="crop"]');
+if (cropSelect) {
+  cropSelect.addEventListener("change", () => updateCharts(cropSelect.value));
+  updateCharts(cropSelect.value || null);
+}
+</script>
+{% endblock %}

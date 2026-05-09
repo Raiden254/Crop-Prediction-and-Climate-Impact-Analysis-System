@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crop Yield Prediction and Climate Impact Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        p { font-weight: bold; }
+    </style>
+</head>
+
+{% if background_image %}
+<body style="background-image: url('{{ background_image }}'); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: fixed;">
+{% else %}
+<body>
+{% endif %}
+
+<div class="layout">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h4>Dashboard</h4>
+        <a href="/">Overview</a>
+        <a href="/climate">Climate Analysis</a>
+
+        <h5 class="mt-3">Crops</h5>
+        {% for crop in crops %}
+            <a href="/crop/{{ crop | lower }}"
+               class="crop-link {% if crop.lower() == current_crop %}active{% endif %}">
+               {{ crop }}
+            </a>
+        {% endfor %}
+
+        <hr>
+        <a href="/predict" class="predict-btn {% if current_crop == 'predict' %}active{% endif %}">
+            Prediction
+        </a>
+        <a href="/admin" style="font-size:11px; opacity:0.4;">Admin</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main">
+        {% block content %}{% endblock %}
+    </div>
+
+</div>
+<style>
+    .page-transition {
+        opacity: 0;
+        transition: opacity 0.5s ease;
+    }
+    .page-transition.active {
+        opacity: 1;
+    }
+</style>
+
+<script>
+    document.querySelector('.main').classList.add('page-transition');
+    window.addEventListener('load', () => {
+        document.querySelector('.main').classList.add('loaded');
+    });
+
+    document.querySelectorAll('.sidebar 1, .sidebar, .crop-link, .predict-btn').forEach(link => {
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href && !href.startsWith('#')) {
+                e.preventDefault();
+                document.querySelector('.main').classList.remove('loaded');
+                setTimeout(() => window.location.href = href, 280);
+                } 
+        });
+    });
+</script>
+
+{% block scripts %}{% endblock %}
+
+</body>
+</html>
