@@ -292,13 +292,23 @@
             justify-content:center;
             gap: 20px;
             padding:20px;
-            background: #111827;  /* deep charcoal black */
-            background: linear-gradient(90deg, #0f172a, #111827);
         }  
         /* Vortex logo */
         .logo{
-            width:100px;
+            width:140px;
             height:auto;
+        }
+        /* whole title */
+        .title {
+            font-size: 35px;
+            font-weight: 500;
+            margin: 0;
+        } 
+        /* ONLY Vortex is styled */
+        .vortex {
+            color: #043117;
+            font-weight: 800;
+            font-size: 45px;
         }
         /* Footer */
         .footer {
