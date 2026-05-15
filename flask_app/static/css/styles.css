@@ -285,3 +285,29 @@
             overflow-y: auto;
             padding-right: 10px;
         }
+       /* Header */
+        .app-header{
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            gap: 20px;
+            padding:20px;
+        }  
+        /* Vortex logo */
+        .logo{
+            width:100px;
+            height:auto;
+        }
+        /* Footer */
+        .footer {
+            width: 100%;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+        .footer-logo {
+            width: 80px;
+            height: auto;
+            display: block;
+            margin: 0 auto 8px;
+        }

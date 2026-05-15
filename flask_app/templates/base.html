@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <title>Crop Yield Prediction and Climate Impact Analysis</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
@@ -11,9 +12,17 @@
 
 {% if background_image %}
 <body style="background-image: url('{{ background_image }}'); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: fixed;">
+
+       
 {% else %}
 <body>
 {% endif %}
+    <header class="app-header">
+    <img src="{{ url_for('static', filename='images/Vortex_green.png') }}" 
+         alt="Vortex Logo"
+         class="logo">
+         <h1>Vortex | Crop Yield and Climate Intelligence</h1>
+     </header> 
 
 <div class="layout">
 
@@ -74,5 +83,12 @@
 
 {% block scripts %}{% endblock %}
 
+<footer class="footer">
+    <img src="{{url_for('static', filename='images/Ace_Analytics.png')}}"
+    alt="Ace Analytics"
+    class="footer-logo">
+
+    <p>Powered by Ace Analtics</p>
+</footer>
 </body>
 </html>
