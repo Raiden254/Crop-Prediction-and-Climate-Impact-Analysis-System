@@ -292,6 +292,8 @@
             justify-content:center;
             gap: 20px;
             padding:20px;
+            background: #111827;  /* deep charcoal black */
+            background: linear-gradient(90deg, #0f172a, #111827);
         }  
         /* Vortex logo */
         .logo{
